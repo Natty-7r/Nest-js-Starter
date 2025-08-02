@@ -1,5 +1,5 @@
 import { Injectable, Logger } from '@nestjs/common';
-import config from 'src/common/config/app.config';
+import appConfig from '@app/common/config/app.config';
 import { FileLogQueryDto } from './dto/file-log-query.dto';
 import { ActivityLoggerStrategry } from './winston-logger/strategies/activity-logger.strategry';
 import { ErrorLoggerStrategy } from './winston-logger/strategies/error-logger.strategry';
@@ -7,7 +7,7 @@ import { WinstonLoggerService } from './winston-logger/winston-logger.service';
 
 @Injectable()
 export class LoggerService {
-  private static readonly baseLogger = new Logger(config.app.appName);
+  private static readonly baseLogger = new Logger(appConfig.app.appName);
 
   constructor(
     private readonly activityLoggerStrategry: ActivityLoggerStrategry,

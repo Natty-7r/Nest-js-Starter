@@ -1,4 +1,4 @@
-import { LogType } from '@app/shared/types/shared.type';
+import { LogType } from '@libs/shared/types/shared.type';
 import { ApiProperty } from '@nestjs/swagger';
 import { IsNotEmpty, IsString, IsOptional } from 'class-validator';
 

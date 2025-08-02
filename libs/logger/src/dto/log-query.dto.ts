@@ -1,5 +1,5 @@
-import QueryDto from '@app/shared/dto/query.dto';
-import { LogType, TimeUnit } from '@app/shared/types/shared.type';
+import QueryDto from '@libs/shared/dto/query.dto';
+import { LogType, TimeUnit } from '@libs/shared/types/shared.type';
 import { ApiPropertyOptional } from '@nestjs/swagger';
 import { IsDateString, IsEnum, IsInt, IsOptional, IsPositive } from 'class-validator';
 

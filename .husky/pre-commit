@@ -1,1 +1,8 @@
-npm test
+#!/usr/bin/env sh
+
+echo "Running pre-commit checks..."
+
+# Run formatting and linting on staged files
+npx lint-staged
+npm run lint 
+npm run format

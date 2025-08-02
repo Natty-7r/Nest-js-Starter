@@ -1,13 +1,19 @@
-import { LoggerService } from '@app/logger';
+import { LoggerService } from '@libs/logger';
 import { NestFactory } from '@nestjs/core';
+import { SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
-import config from './common/config/app.config';
+import appConfig from './common/config/app.config';
+import swaggerConfig from './common/config/swagger.config';
 
 async function bootstrap() {
   try {
     const app = await NestFactory.create(AppModule);
-    await app.listen(config.app.port ?? 3000, () => {
-      LoggerService.nestLog(`App is running port ${config.app.port}`);
+
+    const document = SwaggerModule.createDocument(app, swaggerConfig);
+    SwaggerModule.setup('api', app, document);
+
+    await app.listen(appConfig.app.port ?? 3000, () => {
+      LoggerService.nestLog(`App is running port ${appConfig.app.port}`);
     });
   } catch (error: unknown) {
     if (error instanceof Error) {

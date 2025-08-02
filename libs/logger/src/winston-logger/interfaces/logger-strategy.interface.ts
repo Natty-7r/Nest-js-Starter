@@ -1,4 +1,4 @@
-import { LoggerType } from '@app/shared/types/shared.type';
+import { LoggerType } from '@libs/shared/types/shared.type';
 
 export interface LoggerStrategy {
   getLoggerConfig(): Record<string, unknown>;

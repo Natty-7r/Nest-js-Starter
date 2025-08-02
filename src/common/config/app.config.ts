@@ -1,6 +1,6 @@
 // src/config/config.ts
 import * as dotenv from 'dotenv';
-import { configValidationSchema } from 'src/utils/helpers/schema.helper';
+import { configValidationSchema } from '@app/utils/helpers/schema.helper';
 import {
   AppConfig,
   AuthConfig,
@@ -94,5 +94,5 @@ function getLoggerConfig(envVars: Record<string, any>): LoggerConfig {
 }
 
 // Load and export the config
-const config = loadConfig();
-export default config;
+const appConfig = loadConfig();
+export default appConfig;

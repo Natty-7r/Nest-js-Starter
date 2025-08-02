@@ -1,13 +1,13 @@
 import { Injectable } from '@nestjs/common';
 
-import { calculateTimeFrame, compareDates } from '@app/shared/helpers/date.helper';
+import { calculateTimeFrame, compareDates } from '@libs/shared/helpers/date.helper';
 import {
   getFullPath,
   readFileContent,
   readFileNamesInFolder,
-} from '@app/shared/helpers/file.helper';
-import formatLogFiles from '@app/shared/helpers/formatter.helper';
-import { parseLogFile } from '@app/shared/helpers/parser.helper';
+} from '@libs/shared/helpers/file.helper';
+import formatLogFiles from '@libs/shared/helpers/formatter.helper';
+import { parseLogFile } from '@libs/shared/helpers/parser.helper';
 import {
   LogFile,
   LogFileData,
@@ -15,7 +15,7 @@ import {
   LoggerType,
   LogType,
   TimeUnit,
-} from '@app/shared/types/shared.type';
+} from '@libs/shared/types/shared.type';
 import * as Winston from 'winston';
 import * as DailyRotateFile from 'winston-daily-rotate-file';
 import { FileLogQueryDto } from '../dto/file-log-query.dto';
@@ -104,7 +104,7 @@ export class WinstonLoggerService {
   }: FileLogQueryDto) {
     /* eslint-disable */
     const folderName = LogFileFolder[logType];
-     
+
     let logFileDatas: LogFileData[] = [];
     let [initialDate, finalDate] = [new Date(), new Date()];
 

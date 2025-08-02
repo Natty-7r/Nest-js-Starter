@@ -1,4 +1,4 @@
-import { LogFileFolder, LoggerOption, LoggerType } from '@app/shared/types/shared.type';
+import { LogFileFolder, LoggerOption, LoggerType } from '@libs/shared/types/shared.type';
 import { LoggerStrategy } from '../interfaces/logger-strategy.interface';
 
 export class ErrorLoggerStrategy implements LoggerStrategy {

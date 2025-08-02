@@ -62,5 +62,4 @@ const paginator = async <T, R>({
   }
 };
 
- 
 export default paginator;
