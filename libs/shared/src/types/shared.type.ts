@@ -90,7 +90,7 @@ export type StackTraceInfo = {
 export type LogData = {
   id: string;
   method: string;
-  ip: string;
+  ip: string | number;
   url: string;
   status: number;
   timestamp: string;
@@ -127,7 +127,7 @@ export type ActivityLogData = LogData & {
   res: Record<string, unknown>;
 };
 export type ErrorLogData = LogData & {
-  stack: Record<string, unknown>;
+  stack?: Record<string, unknown> | string;
 } & StackTraceInfo;
 
 export type LogFile = {

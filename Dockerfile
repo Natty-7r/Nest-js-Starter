@@ -5,16 +5,15 @@ WORKDIR /usr/src/app
 
 # Copy package files first for better caching
 COPY package*.json ./
-COPY pnpm-lock.yaml ./
 
-# Install dependencies (using pnpm - adjust if using npm/yarn)
-RUN corepack enable && pnpm install --frozen-lockfile
+# Install dependencies using npm
+RUN npm ci
 
 # Copy all source files
 COPY . .
 
 # Build the application
-RUN pnpm run build
+RUN npm run build
 
 # Stage 2: Production image
 FROM node:18-alpine
@@ -23,8 +22,11 @@ WORKDIR /usr/src/app
 
 # Install production dependencies only
 COPY --from=builder /usr/src/app/package*.json ./
-COPY --from=builder /usr/src/app/pnpm-lock.yaml ./
-RUN corepack enable && pnpm install --prod --frozen-lockfile
+RUN npm ci --only=production
+
+# Create directory for uploaded files
+RUN mkdir -p ./uploaded && chown node:node ./uploaded
+VOLUME /usr/src/app/uploaded
 
 # Copy built files from builder
 COPY --from=builder /usr/src/app/dist ./dist
@@ -36,6 +38,10 @@ HEALTHCHECK --interval=30s --timeout=3s \
 # Environment variables
 ENV NODE_ENV production
 ENV PORT 3000
+ENV UPLOAD_DIR /usr/src/app/uploaded
+
+# Switch to non-root user
+USER node
 
 # Expose the application port
 EXPOSE ${PORT}
