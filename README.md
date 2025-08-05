@@ -1,98 +1,187 @@
+<meta name="description" content="Production-ready NestJS starter kit with Prisma, Docker, Swagger, Winston logging, and enterprise-grade configuration">
+<meta name="keywords" content="nestjs, nestjs starter, nodejs, typescript, prisma, docker, swagger, winston, jest, backend template">
+<meta property="og:title" content="NestJS Enterprise Starter Kit">
+<meta property="og:description" content="Production-grade NestJS template with all essential configurations pre-built">
+<meta property="og:url" content="https://github.com/Natty-7r/nestjs-starter">
+<meta property="og:type" content="website">
+
+# NestJS Enterprise Starter Kit
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
 </p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
-
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
+<p align="center">
+  <a href="https://circleci.com/gh/Natty-7r/nestjs-starter"><img src="https://img.shields.io/circleci/build/github/Natty-7r/nestjs-starter" alt="Build Status"></a>
+  <a href="https://github.com/Natty-7r/nestjs-starter/blob/master/LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License"></a>
+  <a href="https://github.com/Natty-7r/nestjs-starter/pulls"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome"></a>
 </p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+## 🚀 Features
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+- **Pre-configured Git Hooks** (Husky)
+  - Pre-commit: Runs linter and formatter
+  - Pre-push: Runs build and tests
 
-## Project setup
+- **Code Quality Tools**
+  - ESLint with NestJS-optimized rules
+  - Prettier for consistent formatting
 
-```bash
-$ npm install
+- **Production-Ready Logging**
+  - Winston logger with:
+    - Console transport (development)
+    - Daily rotating files (production)
+    - Integrated with NestJS interceptors
+
+- **API Documentation**
+  - Swagger UI at `/api`
+  - Decorators pre-configured
+
+- **Error Handling**
+  - Global exception filters
+  - Custom exception classes
+
+- **Database Support**
+  - Prisma ORM configured
+  - Ready for PostgreSQL/MySQL
+
+- **Testing Setup**
+  - Jest configured
+  - Unit and E2E test examples
+  - Coverage reporting
+
+- **Docker Support**
+  - Production-ready Dockerfile
+  - docker-compose for development
+
+## 📂 Project Structure
+
+```
+nestjs-starter/
+├── src/ # Application source
+│ ├── app.controller.ts
+│ ├── app.module.ts # Root module
+│ ├── app.service.ts
+│ └── main.ts # Entry point
+│
+├── libs/ # Shared modules
+│ ├── logger/ # Winston implementation
+│ │ ├── interfaces/
+│ │ ├── services/
+│ │ └── module.ts
+│ │
+│ └── shared/ # Common utilities
+│ ├── exceptions/ # Custom exceptions
+│ ├── filters/ # Exception filters
+│ ├── interceptors/# Request interceptors
+│ └── module.ts
+│
+├── test/ # Test files
+│ ├── unit/ # Unit tests
+│ └── e2e/ # End-to-end tests
+│
+├── docker/ # Docker configs
+│ ├── Dockerfile # Production image
+│ └── docker-compose.yml
+│
+├── .husky/ # Git hooks
+│ ├── pre-commit # Runs linter + formatter
+│ └── pre-push # Runs build + tests
+│
+├── prisma/ # Prisma ORM
+│ ├── schema.prisma # DB schema
+│ └── migrations/ # Migration files
+│
+├── .env.example # Environment template
+├── .eslintrc.js # ESLint config
+├── .prettierrc # Prettier config
+└── jest.config.js # Jest config
+
 ```
 
-## Compile and run the project
+## 🚀 Quick Start
 
 ```bash
-# development
-$ npm run start
+# 1. Clone repository
+git clone https://github.com/Natty-7r/nestjs-starter.git
+cd nestjs-starter
 
-# watch mode
-$ npm run start:dev
+# 2. Install dependencies
+npm install
 
-# production mode
-$ npm run start:prod
+# 3. Setup environment
+cp .env.example .env
+npx prisma generate
+
+# 4. Run in development
+npm run start:dev
 ```
 
-## Run tests
+Access Swagger UI at: http://localhost:{PORT}/api
+
+🛠 Development Commands
+
+| Command             | Description               |
+| ------------------- | ------------------------- |
+| `npm run start:dev` | Run with hot-reload       |
+| `npm run lint`      | Run ESLint                |
+| `npm run format`    | Format code with Prettier |
+| `npm run test`      | Run unit tests            |
+| `npm run test:e2e`  | Run e2e tests             |
+| `npm run test:cov`  | Run tests with coverage   |
+| `npx prisma studio` | Launch DB GUI             |
+
+🐳 Docker Setup
+
+**Development:**
 
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+docker-compose up -d
 ```
 
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+**Production Build:**
 
 ```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
+docker build -t nestjs-starter .
+docker run -p 3000:3000 nestjs-starter
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+🔒 Git Hooks
 
-## Resources
+Automated workflows:
 
-Check out a few resources that may come in handy when working with NestJS:
+    Pre-commit:
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+        Runs ESLint on staged files
 
-## Support
+        Auto-formats with Prettier
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+    Pre-push:
 
-## Stay in touch
+        Verifies project builds
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+        Runs all tests
 
-## License
+📝 Logging Configuration
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+Winston logger features:
+
+    JSON format for production
+
+🤝 Contributing
+
+    Fork the repository
+
+    Create your feature branch (git checkout -b feature/AmazingFeature)
+
+    Commit your changes (git commit -m 'Add some AmazingFeature')
+
+    Push to the branch (git push origin feature/AmazingFeature)
+
+    Open a Pull Request
+
+📧 Contact
+**Author:** Natty Fekadu  
+**GitHub:** [@Natty-7r](https://github.com/Natty-7r)  
+**LinkedIn:** [linkedin.com/in/natty-fekadu](https://www.linkedin.com/feed/)  
+**Email:** nati7fekadu@gmail.com
