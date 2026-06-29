@@ -22,12 +22,11 @@
     "strictBindCallApply": true,
     "noFallthroughCasesInSwitch": true,
     "paths": {
-      "@app/*": [
-        "./src/*"
-      ],
-      "@libs/*": [
-        "./libs/*"
-      ]
+      "@app/*": ["./src/*"],
+      "@libs/logger": ["./libs/logger/src"],
+      "@libs/logger/*": ["./libs/logger/src/*"],
+      "@libs/shared": ["./libs/shared/src"],
+      "@libs/shared/*": ["./libs/shared/src/*"]
     }
   }
 }
