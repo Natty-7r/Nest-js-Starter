@@ -18,7 +18,11 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "prepare": "husky"
+    "prepare": "husky",
+    "docker:build": "docker build -t nest-js-starter .",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f"
   },
   "dependencies": {
     "@nestjs/common": "^11.1.27",
@@ -48,7 +52,7 @@
     "@swc/core": "^1.15.43",
     "@types/express": "^5.0.6",
     "@types/jest": "^30.0.0",
-    "@types/joi": "^17.2.2",
+    "@types/joi": "^21.0.1",
     "@types/multer": "^2.1.0",
     "@types/node": "^26.0.1",
     "@types/supertest": "^7.2.0",
