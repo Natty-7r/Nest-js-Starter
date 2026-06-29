@@ -1,7 +1,8 @@
-
 import { NestFactory } from '@nestjs/core';
+import { SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
 import appConfig from './common/config/app.config';
+import swaggerConfig from './common/config/swagger.config';
 
 async function bootstrap() {
   try {
@@ -11,6 +12,12 @@ async function bootstrap() {
     console.log(`   Environment: ${appConfig.app.nodeEnv}`);
 
     const app = await NestFactory.create(AppModule);
+
+    // Setup Swagger
+    const document = SwaggerModule.createDocument(app, swaggerConfig);
+    SwaggerModule.setup('api', app, document);
+    console.log(`📚 Swagger documentation available at: http://localhost:${appConfig.app.port}/api`);
+
     await app.listen(appConfig.app.port ?? 3000);
     console.log(`🚀 Application is running on: http://localhost:${appConfig.app.port}`);
   } catch (error: unknown) {
