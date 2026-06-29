@@ -13,6 +13,7 @@
     "target": "ES2023",
     "sourceMap": true,
     "outDir": "./dist",
+    "rootDir": "./",
     "baseUrl": "./",
     "incremental": true,
     "skipLibCheck": true,
@@ -21,6 +22,7 @@
     "noImplicitAny": true,
     "strictBindCallApply": true,
     "noFallthroughCasesInSwitch": true,
+    "ignoreDeprecations": "6.0",
     "paths": {
       "@app/*": ["./src/*"],
       "@libs/logger": ["./libs/logger/src"],
@@ -28,5 +30,7 @@
       "@libs/shared": ["./libs/shared/src"],
       "@libs/shared/*": ["./libs/shared/src/*"]
     }
-  }
+  },
+  "include": ["src/**/*", "libs/**/*", "test/**/*"],
+  "exclude": ["node_modules", "dist", "**/*.spec.ts"]
 }
